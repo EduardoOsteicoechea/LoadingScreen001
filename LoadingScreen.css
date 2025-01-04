@@ -11,9 +11,9 @@
 
 .loading_screen_content_size_container
 {
-   top: 200px;
-   left: 30px;
+   top: 50px;
+   left: 50px;
    width: 600px;
-   height: 150px;
+   height: 135px;
    /* border: 1px solid red; */
 }
