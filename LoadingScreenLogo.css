@@ -1,0 +1,134 @@
+.loading_screen_logo_outer_container
+{
+   display: flex;
+   align-items: center;
+   justify-content: flex-start;
+   height: 100%;
+   width: 0%;
+   left: 100%;
+   background: var(--c1);
+   z-index: 2000;
+   transition: all ease-in-out 6000ms;
+   overflow: hidden;
+   /* border: var(--b1); */
+}
+.loading_screen_logo_outer_container_shrink
+{
+   width: 0;
+}
+.loading_screen_logo_outer_container_expand
+{
+   width: 100%;
+   left: 0;
+}
+.loading_screen_logo_outer_container_bring_to_front
+{
+   z-index: 2000;
+}
+.loading_screen_logo_outer_container_send_to_back
+{
+   z-index: 0;
+}
+
+
+.loading_screen_logo_content_container
+{
+   position: absolute;
+   display: flex;
+   align-items: center;
+   justify-content: flex-start;
+   height: 100%;
+   width: 600px;
+   /* border: solid 1px red; */
+   z-index: 0;
+}
+
+.loading_screen_logo_image_container
+{
+   position: absolute;
+   height: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 100px;
+   /* border: solid 1px red; */
+}
+.loading_screen_logo_image
+{
+   height: 100%;
+}
+.loading_screen_logo_text_container
+{
+   position: absolute;
+   left: 100px;
+   width: 500px;
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   justify-content: flex-start;
+}
+.loading_screen_logo_text_container_main_heading
+{
+   position: absolute;
+   top: 45px;
+   width: calc(50dvw * .85);
+   font-size: 40px;
+   padding: 0 20px;
+   /* border: var(--b3); */
+}
+.loading_screen_logo_text_container_main_subheading
+{
+   position: absolute;
+   top: 88px;
+   width: calc(50dvw * .85);
+   font-size: 17px;
+   font-family: f1l;
+   padding: 0 20px;
+   /* border: var(--b1); */
+}
+
+
+.loading_screen_logo_left_cover
+{
+   display: none;
+   position: absolute;
+   width: 130%;
+   height: 100%;
+   left: 0%;
+   z-index: 1000;
+   background: var(--g2);
+   transition: all ease-out 5000ms;
+   /* border: solid 5px blue;    */
+}
+.loading_screen_logo_left_cover_on
+{
+   left: 0%;
+   z-index: 1000;
+}
+.loading_screen_logo_left_cover_off
+{
+   left: -130%;
+   z-index: 0;
+}
+.loading_screen_logo_right_cover
+{
+   display: none;
+   position: absolute;
+   width: 150%;
+   height: 100%;
+   left: 100%;
+   background: var(--g3);
+   transition: all ease 7000ms;
+   /* border: solid 5px rgb(61, 226, 255); */
+}
+.loading_screen_logo_right_cover_on
+{
+   left: -50%;
+   z-index: 1000;
+}
+.loading_screen_logo_right_cover_off
+{
+   left: 100%;
+   z-index: 0;
+}

@@ -1,0 +1,19 @@
+.loading_screen_outer_container
+{
+   height: 100dvh;
+   max-height: var(--h_page);
+   width: 100dvw;
+   max-width: var(--w_page);
+   display: flex;
+   /* background: rgb(195, 251, 255); */
+   /* border: solid 1px red; */
+}
+
+.loading_screen_component_size_container
+{
+   top: 200px;
+   left: 30px;
+   width: 600px;
+   height: 150px;
+   /* border: 1px solid red; */
+}

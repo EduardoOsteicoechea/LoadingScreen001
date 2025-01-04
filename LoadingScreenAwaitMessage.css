@@ -1,0 +1,92 @@
+.loading_screen_prompt_to_await_container
+{
+   position: absolute;
+   top: 0%;
+   display: flex;
+   align-items: center;
+   justify-content: flex-start;
+   height: 100%;
+   width: 0%;
+   left: 100%;
+   background: var(--c1);
+   /* border: var(--b1); */
+   transition: all ease-in-out 6000ms;
+   overflow: hidden;
+   z-index: 1000;
+} 
+.loading_screen_prompt_to_await_container_shrink
+{
+   width: 0;
+}
+.loading_screen_prompt_to_await_container_expand
+{
+   left: 0;
+   width: 100%;
+}
+
+
+.loading_screen_prompt_to_await_message_container
+{
+   z-index: 1000;
+   height: 100%;
+   width: 0%;
+/* border: solid 30px blue; */
+}
+.loading_screen_prompt_to_await_message_container_bring_to_front
+{
+   z-index: 2;
+}
+.loading_screen_prompt_to_await_message_container_send_to_back
+{
+   z-index: 0;
+}
+.loading_screen_prompt_to_await_message
+{
+   position: absolute;
+   top: 40px;
+   /* background: red; */
+   height: 100%;
+   width: 600px;
+   padding: 0 30px;
+   font-size: 20px;
+   font-family: f1l;
+}
+.loading_screen_prompt_to_await_left_cover
+{
+   position: absolute;
+   width: 150%;
+   height: 100%;
+   left: 0%;
+   background: var(--g2);
+   /* border: solid 10px green; */
+   z-index: 0;
+}
+.loading_screen_prompt_to_await_left_cover_on
+{
+   left: 0%;
+   /* z-index: 1000; */
+}
+.loading_screen_prompt_to_await_left_cover_off
+{
+   left: -150%;
+   z-index: 0;
+}
+.loading_screen_prompt_to_await_right_cover
+{
+   position: absolute;
+   width: 150%;
+   height: 100%;
+   left: 100%;
+   background: var(--g3);
+   border: solid 5px green;
+}
+.loading_screen_prompt_to_await_right_cover_on
+{
+   left: -50%;
+   /* z-index: 1000; */
+}  
+.loading_screen_prompt_to_await_right_cover_off
+{
+   left: 100%;
+   z-index: 0;
+}
