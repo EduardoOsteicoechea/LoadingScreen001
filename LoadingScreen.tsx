@@ -1,10 +1,7 @@
 import React from 'react';
-import logoFilePath from "../../assets/favicon.svg";
-import './LoadingScreen.css';
-import './LoadingScreenLogo.css';
-import './LoadingScreenAwaitMessage.css';
+import LoadingScreenJSX from './LoadingScreenJSX';
 
-function LoadingScreen(props: any): JSX.Element
+export default function LoadingScreen(props: any): JSX.Element
 {
    const [logoLeftCoverState, setLogoLeftCoverState] = React.useState("");
    const [logoRightCoverState, setLogoRightCoverState] = React.useState("");
@@ -13,18 +10,8 @@ function LoadingScreen(props: any): JSX.Element
    const [awaitMessageContainerState, setAwaitMessageContainerState] = React.useState("");
    const [awaitMessageLeftCoverState, setAwaitMessageLeftCoverState] = React.useState("");
    const [awaitMessageRightCoverState, setAwaitMessageRightCoverState] = React.useState("");
-   const [dynamicLoadingDotsState, setDynamicLoadingDotsState] = React.useState(".");
 
-   let animation1Id = 0;
-   let animation2Id = 0;
-   let animation3Id = 0;
-   let animation4Id = 0;
-   let animation5Id = 0;
-   let animation6Id = 0;
-   let animation7Id = 0;
-   let animation8Id = 0;
-   let animation9Id = 0;
-   let animation10Id = 0;
+   let animation1Id = 0, animation2Id = 0, animation3Id = 0, animation4Id = 0,  animation5Id = 0, animation6Id = 0, animation7Id = 0, animation8Id = 0, animation9Id = 0, animation10Id = 0;
 
    React.useEffect(() =>
    {
@@ -65,93 +52,26 @@ function LoadingScreen(props: any): JSX.Element
       animation7Id = setTimeout(() =>
       {
          setLogoContainerState("loading_screen_logo_outer_container_expand");
+      }, 16500);
+
+      animation8Id = setTimeout(() =>
+      {
          props.onAnimationComplete();
       }, 16500);
 
-      // animation8Id = setTimeout(() =>
-      // {
-      // }, 22500);
-
-      return () =>
-      {
-         clearTimeout(animation1Id);
-         clearTimeout(animation2Id);
-         clearTimeout(animation3Id);
-         clearTimeout(animation4Id);
-         clearTimeout(animation5Id);
-         clearTimeout(animation6Id);
-         clearTimeout(animation7Id);
-      };
+      return () => { clearTimeout(animation1Id); clearTimeout(animation2Id); clearTimeout(animation3Id); clearTimeout(animation4Id); clearTimeout(animation5Id); clearTimeout(animation6Id); clearTimeout(animation7Id); clearTimeout(animation8Id); clearTimeout(animation9Id); clearTimeout(animation10Id); };
 
    }, [props.value]);
 
-   /////////////////////////////////
-   /////////////////////////////////
-   /// DOTS ANIMATION CONTROLLER
-   /////////////////////////////////
-   /////////////////////////////////
-
-   React.useEffect(() => 
-   {
-      let dynamicLoadingDotsStateValue = ".";
-      let animateDotsIntervalId: number = 0;
-
-      const animateDots: VoidFunction = () => 
-      {
-         animateDotsIntervalId = setInterval(() =>
-         {
-            if (dynamicLoadingDotsStateValue.length < 3)
-            {
-               dynamicLoadingDotsStateValue = dynamicLoadingDotsStateValue + ".";
-               setDynamicLoadingDotsState(dynamicLoadingDotsStateValue);
-            }
-            else
-            {
-               dynamicLoadingDotsStateValue = ".";
-               setDynamicLoadingDotsState(dynamicLoadingDotsStateValue);
-            };
-         }, 750);
-      };
-
-      animateDots();
-      return () => clearInterval(animateDotsIntervalId);
-   }, []);
-
-   /////////////////////////////////
-   /////////////////////////////////
-   /// JSX RETURN STATEMENT
-   /////////////////////////////////
-   /////////////////////////////////
-
    return (
-      <div className="loading_screen_outer_container">
-         <div className="loading_screen_component_size_container">
-
-            <div className={`loading_screen_logo_outer_container ${logoContainerState} ${logoContainerZIndexState}`}>
-               <div className="loading_screen_logo_content_container">
-                  <div className="loading_screen_logo_image_container">
-                     <img src={logoFilePath} className="loading_screen_logo_image" alt="Logo" />
-                  </div>
-                  <div className="loading_screen_logo_text_container">
-                     <h2 className="loading_screen_logo_text_container_main_heading">Eduardo Osteicoechea</h2>
-                     <h1 className="loading_screen_logo_text_container_main_subheading">Ethical thinking - Gospel Arts - Multiplatform Software</h1>
-                  </div>
-               </div>
-               <div className={`loading_screen_logo_left_cover ${logoLeftCoverState}`}></div>
-               <div className={`loading_screen_logo_right_cover ${logoRightCoverState} `}></div>
-            </div>
-
-            <div className={`loading_screen_prompt_to_await_container ${awaitMessageContainerState}`}>
-               <div className="loading_screen_prompt_to_await_message_container">
-                  <h2 className="loading_screen_prompt_to_await_message">Please wait briefly.<br />I'm setting up the application{dynamicLoadingDotsState}</h2>
-               </div>
-               <div className={`loading_screen_prompt_to_await_left_cover ${awaitMessageLeftCoverState}`}></div>
-               <div className={`loading_screen_prompt_to_await_right_cover ${awaitMessageRightCoverState}`}></div>
-            </div>
-
-         </div>
-      </div>
+      <LoadingScreenJSX 
+      logoLeftCoverState={logoLeftCoverState}
+      logoRightCoverState={logoRightCoverState}
+      logoContainerState={logoContainerState}
+      logoContainerZIndexState={logoContainerZIndexState}
+      awaitMessageContainerState={awaitMessageContainerState}
+      awaitMessageLeftCoverState={awaitMessageLeftCoverState}
+      awaitMessageRightCoverState={awaitMessageRightCoverState}
+      />
    );
-}
-
-export default LoadingScreen;
+};

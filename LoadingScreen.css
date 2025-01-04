@@ -1,4 +1,4 @@
-.loading_screen_outer_container
+.loading_screen_fullscreen_size_container
 {
    height: 100dvh;
    max-height: var(--h_page);
@@ -9,7 +9,7 @@
    /* border: solid 1px red; */
 }
 
-.loading_screen_component_size_container
+.loading_screen_content_size_container
 {
    top: 200px;
    left: 30px;

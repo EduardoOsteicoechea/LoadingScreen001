@@ -1,6 +1,3 @@
-
-
-
 - Create the repository on github
 - Set it as public
 - Avoid specifying a liscence
