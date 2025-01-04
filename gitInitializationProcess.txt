@@ -1,0 +1,25 @@
+
+
+
+- Create the repository on github
+- Set it as public
+- Avoid specifying a liscence
+- Do not add a readme file
+
+   Create the readme file on the command line
+echo "# LoadingScreen001" >> README.md
+
+   Add all the files and subdirectories in the current directory to the local git staging area (temporal save before actually saving the changes to the local git storage with "git commit")
+git add .
+
+   Save the changes to the local git storage
+git commit -m "first commit"
+
+   Set the branch to main. "-M" means to inforce the action -> without this it could fail if the branch is already named with a different name
+git branch -M main
+
+   Add the web GitHub repository as the remote origin of the currently tracked repository
+git remote add origin https://github.com/EduardoOsteicoechea/LoadingScreen001.git
+
+   Push the currently tracked repository to GitHub
+git push --set-upstream origin main
