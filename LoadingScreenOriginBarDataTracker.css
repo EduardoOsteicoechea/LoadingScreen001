@@ -1,0 +1,32 @@
+.loading_screen_data_tracker
+{
+   /* position: absolute; */
+   top: 50px;
+   display: flex;
+   border: solid 1px red;
+   height: 300px;
+   width: calc(var(--w_page) - 110px);
+   overflow: scroll;
+
+}
+.screen_loader_data_tracker_section_heading
+{
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   height: 45px;
+   border: solid 1px rgb(47, 255, 193);
+   font-size: 12px;
+   font-family: f1bl;
+}
+.screen_loader_data_tracker_section
+{
+   position: relative;  
+   display: flex;
+   flex-direction: column;
+   gap: 5px;
+   border: solid 1px rgb(78, 47, 255);
+   width: 300px;
+   font-size: 12px;
+   overflow: scroll;
+}

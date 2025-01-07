@@ -1,10 +1,13 @@
 .loading_screen_fullscreen_size_container
 {
-   height: 100dvh;
-   max-height: var(--h_page);
+   /* height: 100dvh;
+   max-height: var(--h_page); */
+   height: 100vh;
    width: 100dvw;
    max-width: var(--w_page);
    display: flex;
+   flex-direction: column;
+
    /* background: rgb(195, 251, 255); */
    /* border: solid 1px red; */
 }

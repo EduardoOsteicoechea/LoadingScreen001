@@ -1,7 +1,8 @@
 import React from 'react';
 import './LoadingScreenOriginBar.css';
+import LoadingScreenOriginBarDataTracker from './LoadingScreenOriginBarDataTracker';
 
-export default function LoadingOriginBar(props: any): JSX.Element | null 
+export default function LoadingScreenOriginBar(props: any): JSX.Element | null 
 {
    if (props.pageLoadedState) 
    {
@@ -15,41 +16,46 @@ export default function LoadingOriginBar(props: any): JSX.Element | null
 
       React.useEffect(() => 
       {
-         const animationsController = 
-         [
+         props.setIsAnimationCycleCompleted(false);
+
+         const animationsController =
             [
-               () => setOriginBarHeightState("loading_screen_origin_bar_expand"), 
-               1, "loading_screen_origin_bar_expand"
-            ],
-            [
-               () => setOriginBarHorizontalLocationState("loading_screen_origin_bar_to_left"), 
-               6, "loading_screen_origin_bar_to_left"
-            ],
-            [
-               () => setOriginBarRotationState("loading_screen_origin_bar_half_positive_rotation"), 6, "loading_screen_origin_bar_half_positive_rotation"
-            ],
-            [
-               () => setOriginBarHorizontalLocationState("loading_screen_origin_bar_to_right"), 
-               2, "loading_screen_origin_bar_to_right"
-            ],
-            [
-               () => setOriginBarHeightState("loading_screen_origin_bar_shrink"), 
-               6, "loading_screen_origin_bar_shrink"
-            ],
-            [
-               props.onAnimationComplete, 1, "onAnimationComplete"
-            ]
-         ];
+               [
+                  () => setOriginBarHeightState("loading_screen_origin_bar_expand"),
+                  1, "loading_screen_origin_bar_expand"
+               ],
+               [
+                  () => setOriginBarHorizontalLocationState("loading_screen_origin_bar_to_left"),
+                  6, "loading_screen_origin_bar_to_left"
+               ],
+               [
+                  () => setOriginBarRotationState("loading_screen_origin_bar_half_positive_rotation"), 6, "loading_screen_origin_bar_half_positive_rotation"
+               ],
+               [
+                  () => setOriginBarHorizontalLocationState("loading_screen_origin_bar_to_right"),
+                  2, "loading_screen_origin_bar_to_right"
+               ],
+               [
+                  () => setOriginBarRotationState("loading_screen_origin_bar_half_negative_rotation"), 6, "loading_screen_origin_bar_half_negative_rotation"
+               ],
+               [
+                  () => setOriginBarHeightState("loading_screen_origin_bar_shrink"),
+                  6, "loading_screen_origin_bar_shrink"
+               ],
+               [
+                  props.onAnimationComplete, 1, "onAnimationComplete"
+               ]
+            ];
 
          let animationFunctionsTimeoutsIds: number[] = [];
          let timeDifferencesSum = animationsController.reduce((accumulator, currentValue) => accumulator + currentValue[1], 0);
          let timeBasis = props.fullAnimationTime / timeDifferencesSum;
          let timeController = 0;
-         
+
          console.log("Starting animation");
          console.log("timeDifferencesSum:\n     ", timeDifferencesSum);
          console.log("timeBasis:\n     ", timeBasis);
-         
+
          animationsController.forEach((animationData) => 
          {
             timeController += timeBasis * animationData[1];
@@ -71,14 +77,20 @@ export default function LoadingOriginBar(props: any): JSX.Element | null
       }, [props.screenLoaderCounter]);
 
       return (
-         <div
-            className={`
-            loading_screen_origin_bar
-            ${originBarHeightState}
-            ${originBarHorizontalLocationState} 
-            ${originBarRotationState}`
-            }>
-         </div>
+         <>
+            <div className={`loading_screen_origin_bar ${originBarHeightState} ${originBarHorizontalLocationState} ${originBarRotationState}`}></div>
+
+            <LoadingScreenOriginBarDataTracker
+               screenLoaderCounter={props.screenLoaderCounter}
+               pageLoadedState={props.pageLoadedState}
+               onAnimationComplete={props.onAnimationComplete}
+               fullAnimationTime={props.fullAnimationTime}
+               setIsAnimationCycleCompleted={props.setIsAnimationCycleCompleted}
+               originBarHeightState={originBarHeightState}
+               originBarHorizontalLocationState={originBarHorizontalLocationState}
+               originBarRotationState={originBarRotationState}
+            />
+         </>
       )
    };
 };

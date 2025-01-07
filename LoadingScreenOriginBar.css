@@ -44,7 +44,7 @@
 }
 .loading_screen_origin_bar_full_negative_rotation
 {
-   transform: rotate(-360deg);
+   transform: rotate(360deg);
 }
 .loading_screen_origin_bar_full_positive_rotation
 {
